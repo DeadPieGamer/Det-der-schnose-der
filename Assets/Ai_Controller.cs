@@ -79,7 +79,7 @@ public class Ai_Controller : MonoBehaviour
 
 
         }
-
+        
 
         else if (enemyState == EnemyState.searching)
         {
