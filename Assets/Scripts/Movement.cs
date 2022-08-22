@@ -30,11 +30,11 @@ public class Movement : MonoBehaviour
 
     void flip()
     {
-        if (rb.velocity.x < 0)
+        if (rb.velocity.x > 0)
         {
             SpriteRenderer_.flipX = false;
         }
-        else if (rb.velocity.x > 0)
+        else if (rb.velocity.x < 0)
         {
             SpriteRenderer_.flipX = true;
 

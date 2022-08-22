@@ -9,6 +9,8 @@ public class MonsterEffect : MonoBehaviour
     public GameObject target;
     Volume volume;
 
+    public static bool monsterIsNear;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +23,7 @@ public class MonsterEffect : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetMouseButton(0))
+        if (monsterIsNear)
         {
             if (volume.profile.TryGet<ChromaticAberration>(out var chromaticAbe))
             {
