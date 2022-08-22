@@ -23,7 +23,7 @@ public class Movement : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
-        rb.velocity = new Vector2(horizontal * speed, vertical * speed);
+        rb.velocity = new Vector2(horizontal * speed, gameObject.transform.position.y);
 
         flip();
     }
