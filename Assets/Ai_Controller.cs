@@ -9,8 +9,11 @@ public enum EnemyState
 
 public class Ai_Controller : MonoBehaviour
 {
+    public Sprite monsterAngry;
+    public SpriteRenderer monsterRenderer;
 
     public EnemyState enemyState;
+    public Transform eyes;
 
     [SerializeField]
     float speed;
@@ -26,13 +29,12 @@ public class Ai_Controller : MonoBehaviour
     float distance;
     float distanceX;
 
-    AudioSource screams;
 
     // Start is called before the first frame update
     void Awake()
     {
-        screams = gameObject.GetComponent<AudioSource>();
-        rb = gameObject.GetComponent<Rigidbody2D>();
+        monsterRenderer = gameObject.GetComponent<SpriteRenderer>();
+         rb = gameObject.GetComponent<Rigidbody2D>();
         playerPosition = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         distanceX = transform.position.x - playerPosition.position.x;
 
@@ -50,9 +52,8 @@ public class Ai_Controller : MonoBehaviour
     void Update()
     {
         distance = Vector2.Distance(transform.position, playerPosition.position);
-        screams.volume = distance / 20;
 
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, -transform.right, 10);
+        RaycastHit2D hit = Physics2D.Raycast(eyes.position, -transform.right, 13);
         Debug.DrawRay(transform.position, -transform.right,Color.red, 1);
 
         if(hit.collider != null)
@@ -96,6 +97,7 @@ public class Ai_Controller : MonoBehaviour
         {
             speed = 7f;
             rb.velocity = new Vector2(0, 0);
+            monsterRenderer.sprite = monsterAngry;
            
             if(distance <= 4)
             {
