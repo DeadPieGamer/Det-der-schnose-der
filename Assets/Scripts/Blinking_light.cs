@@ -67,7 +67,7 @@ public class Blinking_light : MonoBehaviour
     {
         
             lightFlick();
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.2f);
         
     }
 
@@ -76,7 +76,7 @@ public class Blinking_light : MonoBehaviour
         while (true)
         {
             lightFlick();
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.2f);
         }
     }
 }

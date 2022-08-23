@@ -7,7 +7,8 @@ public class Movement : MonoBehaviour
     public float speed;
     Rigidbody2D rb;
     private Animator animate;
-    private object flipped;
+    public GameObject light_;
+    float horizontal;
 
     public static bool hidden;
 
@@ -15,6 +16,7 @@ public class Movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        animate = gameObject.GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         SpriteRenderer_ = GetComponent<SpriteRenderer>();
     }
@@ -22,13 +24,24 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
+
+
         if (hidden)
         {
             rb.velocity = new Vector2(0, 0);
+            light_.SetActive(false);
         }
+       
 
         if (!hidden)
         {
+            light_.SetActive(true);
+            horizontal = Input.GetAxis("Horizontal");
+            animate.SetFloat("Velocity", Mathf.Abs(horizontal));
+            rb.velocity = new Vector2(horizontal * speed, gameObject.transform.position.y);
+            completeflip();
+
             if (Input.GetKey(KeyCode.LeftShift))
             {
                 speed = 6;
@@ -40,34 +53,19 @@ public class Movement : MonoBehaviour
 
         }
         
-        float horizontal = Input.GetAxis("Horizontal");
-        rb.velocity = new Vector2(horizontal * speed, gameObject.transform.position.y);
-        completeflip();
+       
     }
-
-    /*void flip()
-    {
-        if (rb.velocity.x > 0)
-        {
-            SpriteRenderer_.flipX = false;
-        }
-        else if (rb.velocity.x < 0)
-        {
-            SpriteRenderer_.flipX = true;
-        }
-    }*/
 
     void completeflip()
     {
-       /*flipped = gameObject.GetComponent<Transform>();
-        flipped.Rotate(Vector2.up * speed);*/
+        
 
-       if (Input.GetKeyDown(KeyCode.D))
+        if (horizontal > 0)
        {
             transform.eulerAngles = new Vector3(0, 0, 0);
        } 
 
-       else if (Input.GetKeyDown(KeyCode.A))
+       else if (horizontal < 0)
        {
             transform.eulerAngles = new Vector3(0, 180, 0);
        }
