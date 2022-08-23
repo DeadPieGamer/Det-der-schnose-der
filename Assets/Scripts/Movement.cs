@@ -9,6 +9,7 @@ public class Movement : MonoBehaviour
     private Animator animate;
     private object flipped;
 
+    public static bool hidden;
 
     SpriteRenderer SpriteRenderer_;
     // Start is called before the first frame update
@@ -21,11 +22,26 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (hidden)
+        {
+            rb.velocity = new Vector2(0, 0);
+        }
+
+        if (!hidden)
+        {
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                speed = 6;
+            }
+            else
+            {
+                speed = 4;
+            }
+
+        }
+        
         float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
-
         rb.velocity = new Vector2(horizontal * speed, gameObject.transform.position.y);
-
         completeflip();
     }
 
