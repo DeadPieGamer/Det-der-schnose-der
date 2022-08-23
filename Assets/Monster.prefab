@@ -113,12 +113,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: 448d46415980ff3488cee77b15c27f0a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 56e8232b50edbbf4784cbb590c347238, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 20.48, y: 15.36}
+  m_Size: {x: 37.5, y: 18.75}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -140,9 +140,9 @@ BoxCollider2D:
   m_Offset: {x: 1.1687088, y: 0.5356574}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0.25}
     oldSize: {x: 37.5, y: 18.75}
-    newSize: {x: 20.48, y: 15.36}
+    newSize: {x: 37.5, y: 18.75}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -166,7 +166,7 @@ MonoBehaviour:
   monsterRenderer: {fileID: 0}
   enemyState: 0
   eyes: {fileID: 1597014072213254194}
-  speed: 4
+  speed: 5
   rightDirection: 0
 --- !u!50 &3214544992201987846
 Rigidbody2D:

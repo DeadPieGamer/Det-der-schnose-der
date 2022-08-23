@@ -11,6 +11,7 @@ public class Ai_Controller : MonoBehaviour
 {
     public Sprite monsterAngry;
     public SpriteRenderer monsterRenderer;
+    Animator animator;
 
     public EnemyState enemyState;
     public Transform eyes;
@@ -33,6 +34,7 @@ public class Ai_Controller : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        animator = gameObject.GetComponent<Animator>();
         monsterRenderer = gameObject.GetComponent<SpriteRenderer>();
          rb = gameObject.GetComponent<Rigidbody2D>();
         playerPosition = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
@@ -51,10 +53,10 @@ public class Ai_Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         distance = Vector2.Distance(transform.position, playerPosition.position);
 
         RaycastHit2D hit = Physics2D.Raycast(eyes.position, -transform.right, 13);
-        Debug.DrawRay(transform.position, -transform.right,Color.red, 1);
 
         if(hit.collider != null)
         {
@@ -69,6 +71,7 @@ public class Ai_Controller : MonoBehaviour
 
         if (enemyState == EnemyState.roaming)
         {
+            animator.SetBool("Angry", false);
 
             if (rightDirection)
             {
@@ -95,12 +98,15 @@ public class Ai_Controller : MonoBehaviour
         }
         else if (enemyState == EnemyState.chasing)
         {
-            speed = 7f;
+            animator.SetBool("Angry", true);
+            speed = 6.5f;
             rb.velocity = new Vector2(0, 0);
             monsterRenderer.sprite = monsterAngry;
            
-            if(distance <= 4)
+            if(distance <= 7)
             {
+                transform.eulerAngles = new Vector3(0, 0, 0); // Flipped
+
             }
             else
             {
