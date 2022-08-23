@@ -11,6 +11,8 @@ public class Movement : MonoBehaviour
 
     public static bool hidden;
 
+    public int keys = 0;
+
     SpriteRenderer SpriteRenderer_;
     // Start is called before the first frame update
     void Start()
@@ -72,6 +74,15 @@ public class Movement : MonoBehaviour
             transform.eulerAngles = new Vector3(0, 180, 0);
        }
 
+    }
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.tag == ("Key"))
+        {
+            Destroy(collision.gameObject);
+            keys = keys + 1;
+        }
     }
 }
 
