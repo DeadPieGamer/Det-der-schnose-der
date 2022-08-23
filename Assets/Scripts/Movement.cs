@@ -6,7 +6,8 @@ public class Movement : MonoBehaviour
 {
     public float speed;
     Rigidbody2D rb;
-
+    private Animator animate;
+    private object flipped;
 
 
     SpriteRenderer SpriteRenderer_;
@@ -25,10 +26,10 @@ public class Movement : MonoBehaviour
 
         rb.velocity = new Vector2(horizontal * speed, gameObject.transform.position.y);
 
-        flip();
+        completeflip();
     }
 
-    void flip()
+    /*void flip()
     {
         if (rb.velocity.x > 0)
         {
@@ -37,7 +38,24 @@ public class Movement : MonoBehaviour
         else if (rb.velocity.x < 0)
         {
             SpriteRenderer_.flipX = true;
-
         }
+    }*/
+
+    void completeflip()
+    {
+       /*flipped = gameObject.GetComponent<Transform>();
+        flipped.Rotate(Vector2.up * speed);*/
+
+       if (Input.GetKeyDown(KeyCode.D))
+       {
+            transform.eulerAngles = new Vector3(0, 0, 0);
+       } 
+
+       else if (Input.GetKeyDown(KeyCode.A))
+       {
+            transform.eulerAngles = new Vector3(0, 180, 0);
+       }
+
     }
 }
+
