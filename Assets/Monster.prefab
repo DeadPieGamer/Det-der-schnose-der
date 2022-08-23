@@ -166,7 +166,7 @@ MonoBehaviour:
   monsterRenderer: {fileID: 0}
   enemyState: 0
   eyes: {fileID: 1597014072213254194}
-  speed: 4
+  speed: 5
   rightDirection: 0
 --- !u!50 &3214544992201987846
 Rigidbody2D:
