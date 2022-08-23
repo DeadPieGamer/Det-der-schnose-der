@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 3214544992201987845}
   - component: {fileID: 3214544992201987851}
   - component: {fileID: 3214544992201987844}
+  - component: {fileID: 6478443938474357258}
   m_Layer: 3
   m_Name: Monster
   m_TagString: Monster
@@ -63,7 +64,7 @@ Transform:
   m_GameObject: {fileID: 3214544992201987868}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -21.71, y: -2.7, z: -0.08451006}
-  m_LocalScale: {x: 0.38253674, y: 0.44176942, z: 0.34178868}
+  m_LocalScale: {x: 0.41807443, y: 0.4828098, z: 0.37354085}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3214544993911443610}
@@ -112,7 +113,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: -295485843, guid: fe2162fa4d0435a499aa4c11ab6c98d9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 448d46415980ff3488cee77b15c27f0a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -139,8 +140,8 @@ BoxCollider2D:
   m_Offset: {x: 1.1687088, y: 0.5356574}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 26.625, y: 9.5}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 37.5, y: 18.75}
     newSize: {x: 20.48, y: 15.36}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -326,6 +327,26 @@ AudioDistortionFilter:
   m_GameObject: {fileID: 3214544992201987868}
   m_Enabled: 1
   m_DistortionLevel: 0.5
+--- !u!95 &6478443938474357258
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3214544992201987868}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f45cd65e965ed2e409ee3276e2904be0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3214544993911443611
 GameObject:
   m_ObjectHideFlags: 0
