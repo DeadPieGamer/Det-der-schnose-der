@@ -17,20 +17,24 @@ public class Ai_Controller : MonoBehaviour
 
     [SerializeField]
     public bool rightDirection;
-    bool fliped;
 
     Rigidbody2D rb;
 
 
     Transform playerPosition;
     Transform lastPlayerPosition;
+    float distance;
+    float distanceX;
+
+    AudioSource screams;
 
     // Start is called before the first frame update
     void Awake()
     {
+        screams = gameObject.GetComponent<AudioSource>();
         rb = gameObject.GetComponent<Rigidbody2D>();
         playerPosition = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        float distanceX = transform.position.x - playerPosition.position.x;
+        distanceX = transform.position.x - playerPosition.position.x;
 
         if (distanceX < playerPosition.position.x)
         {
@@ -45,12 +49,15 @@ public class Ai_Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        distance = Vector2.Distance(transform.position, playerPosition.position);
+        screams.volume = distance / 20;
+
         RaycastHit2D hit = Physics2D.Raycast(transform.position, -transform.right, 10);
         Debug.DrawRay(transform.position, -transform.right,Color.red, 1);
 
         if(hit.collider != null)
         {
-            if (hit.collider.tag == "Player")
+            if (hit.collider.tag == "Player" && Movement.hidden == false)
             {
                 enemyState = EnemyState.chasing;
             }
@@ -87,7 +94,17 @@ public class Ai_Controller : MonoBehaviour
         }
         else if (enemyState == EnemyState.chasing)
         {
+            speed = 7f;
+            rb.velocity = new Vector2(0, 0);
+           
+            if(distance <= 4)
+            {
+            }
+            else
+            {
+                transform.position = Vector2.MoveTowards(transform.position, new Vector2(playerPosition.position.x, transform.position.y), speed * Time.deltaTime);
 
+            }
         }
         else if (enemyState == EnemyState.catching)
         {
@@ -104,8 +121,8 @@ public class Ai_Controller : MonoBehaviour
 
     void effektDistanceMathf()
     {
-        float distance = Vector2.Distance(transform.position, playerPosition.position);
-        if (distance < 40)
+       
+        if (distance < 30)
         {
             MonsterEffect.monsterIsNear = true;
         }

@@ -7,6 +7,7 @@ public class Movement : MonoBehaviour
     public float speed;
     Rigidbody2D rb;
 
+    public static bool hidden;
 
 
     SpriteRenderer SpriteRenderer_;
@@ -20,12 +21,29 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
+        if (hidden)
+        {
+            rb.velocity = new Vector2(0, 0);
+        }
 
-        rb.velocity = new Vector2(horizontal * speed, gameObject.transform.position.y);
+        if (!hidden)
+        {
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                speed = 6;
+            }
+            else
+            {
+                speed = 4;
+            }
 
-        flip();
+            float horizontal = Input.GetAxis("Horizontal");
+            rb.velocity = new Vector2(horizontal * speed, gameObject.transform.position.y);
+            flip();
+        }
+        
+
+    
     }
 
     void flip()

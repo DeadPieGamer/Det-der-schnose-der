@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fe2162fa4d0435a499aa4c11ab6c98d9
+guid: f92f220e5ab12e44a9b9703b26977a6f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 8
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteBorder: {x: 38, y: 64, z: 265, w: 90}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -104,22 +104,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Untitled_Artwork_0
+      name: Untitled_Artwork 2_0
       rect:
         serializedVersion: 2
-        x: 79
-        y: 63
-        width: 213
-        height: 76
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 38
+        y: 85
+        width: 13
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c2bfa2ff6435b845a6982e5e75220c3
-      internalID: -295485843
+      spriteID: 68423c50e2464664c9f7989843f88bcb
+      internalID: -812223240
       vertices: []
       indices: 
       edges: []
@@ -128,14 +128,14 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 0
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Untitled_Artwork_0: -295485843
+      Untitled_Artwork 2_0: -812223240
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
