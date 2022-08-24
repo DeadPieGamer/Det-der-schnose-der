@@ -74,8 +74,9 @@ public class Movement : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("ghdhfdhfd");
         if (collision.gameObject.tag == ("Key"))
         {
             Destroy(collision.gameObject);
